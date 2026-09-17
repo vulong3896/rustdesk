@@ -1063,7 +1063,11 @@ pub async fn do_check_software_update() -> hbb_common::ResultType<()> {
 pub fn get_app_name() -> String {
     let name = hbb_common::config::APP_NAME.read().unwrap().clone();
     if name == "RustDesk" {
-        "CertLeap Academy".to_owned()
+        if cfg!(windows) {
+            "CertLeapAcademy".to_owned()
+        } else {
+            "CertLeap Academy".to_owned()
+        }
     } else {
         name
     }
