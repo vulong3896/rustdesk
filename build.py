@@ -978,11 +978,9 @@ def build_flutter_windows(version, features, skip_portable_pack):
     else:
         os.rename('./target/release/rustdesk-portable-packer.exe',
                   './rustdesk_portable.exe')
+    os.replace('./rustdesk_portable.exe', f'./certleap-{version}-install.exe')
     print(
-        f'output location: {os.path.abspath(os.curdir)}/rustdesk_portable.exe')
-    os.replace('./rustdesk_portable.exe', f'./rustdesk-{version}-install.exe')
-    print(
-        f'output location: {os.path.abspath(os.curdir)}/rustdesk-{version}-install.exe')
+        f'output location: {os.path.abspath(os.curdir)}/certleap-{version}-install.exe')
 
 
 def main():
